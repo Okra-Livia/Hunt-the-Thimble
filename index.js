@@ -109,6 +109,7 @@ $(document).ready(function () {
       document.getElementById("moRotation").innerHTML = info;*/
 
       info = eventData.interval;
+      info = info * 10;
       document.getElementById("moInterval").innerHTML = info;
     }
 
