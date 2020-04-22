@@ -71,11 +71,15 @@ $(document).ready(function () {
         document.getElementById("dmEvent").innerHTML = "Not supported on your device or browser.  Sorry."
       }
     }
-  
+  var x = 4;
+  var y = 5;
     function deviceOrientationHandler(tiltLR, tiltFB, dir) {
       document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
       document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
       document.getElementById("doDirection").innerHTML = Math.round(dir);
+      if (Math.round(tiltLR) && Math.round(tiltFB) == x) {
+        document.getElementById("winner").style.display = "block";
+      }
       
       // Apply the transform to the image
 /*      var logo = document.getElementById("main");
@@ -109,7 +113,7 @@ $(document).ready(function () {
       document.getElementById("moRotation").innerHTML = info;*/
 
       info = eventData.interval;
-      info = info * 10;
+      //info = info * 10;
       document.getElementById("moInterval").innerHTML = info;
     }
 
