@@ -67,7 +67,6 @@ $(document).ready(function () {
         document.getElementById("dmEvent").style.fontWeight = "bold";
         document.getElementById("dmEvent").innerHTML = "DeviceOrientation";
         window.addEventListener('devicemotion', deviceMotionHandler, false);
-        console.log("yo");
       } else {
         document.getElementById("dmEvent").innerHTML = "Not supported on your device or browser.  Sorry."
       }
@@ -103,11 +102,11 @@ $(document).ready(function () {
       document.getElementById("moAccelGrav").innerHTML = info;
 
       // Grab the acceleration including gravity from the results
-      var rotation = eventData.rotationRate;
+/*      var rotation = eventData.rotationRate;
       info = xyz.replace("X", round(rotation.alpha));
       info = info.replace("Y", round(rotation.beta));
       info = info.replace("Z", round(rotation.gamma));
-      document.getElementById("moRotation").innerHTML = info;
+      document.getElementById("moRotation").innerHTML = info;*/
 
       info = eventData.interval;
       document.getElementById("moInterval").innerHTML = info;
