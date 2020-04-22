@@ -40,6 +40,7 @@ $(document).ready(function () {
     var count = 0;
     
     function init() {
+        //Device Orientation
       if (window.DeviceOrientationEvent) {
         document.getElementById("doEvent").style.fontWeight = "bold";
         document.getElementById("doEvent").innerHTML = "DeviceOrientation";
@@ -60,6 +61,16 @@ $(document).ready(function () {
       } else {
         document.getElementById("doEvent").innerHTML = "Not supported on your device or browser.  Sorry."
       }
+
+      //device motion
+      if ((window.DeviceMotionEvent) || ('listenForDeviceMovement' in window)) {
+        document.getElementById("dmEvent").style.fontWeight = "bold";
+        document.getElementById("dmEvent").innerHTML = "DeviceOrientation";
+        window.addEventListener('devicemotion', deviceMotionHandler, false);
+        console.log("yo");
+      } else {
+        document.getElementById("dmEvent").innerHTML = "Not supported on your device or browser.  Sorry."
+      }
     }
   
     function deviceOrientationHandler(tiltLR, tiltFB, dir) {
@@ -74,14 +85,6 @@ $(document).ready(function () {
       logo.style.transform = "rotate("+ tiltLR +"deg) rotate3d(1,0,0, "+ (tiltFB*-1)+"deg)";*/
     }
 
-    function init() {
-      if ((window.DeviceMotionEvent) || ('listenForDeviceMovement' in window)) {
-        window.addEventListener('devicemotion', deviceMotionHandler, false);
-      } else {
-        document.getElementById("dmEvent").innerHTML = "Not supported on your device or browser.  Sorry."
-      }
-    }
-    
     function deviceMotionHandler(eventData) {
       var info, xyz = "[X, Y, Z]";
 
