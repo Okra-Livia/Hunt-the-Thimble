@@ -79,6 +79,22 @@ $(document).ready(function () {
         document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
         document.getElementById("doDirection").innerHTML = Math.round(dir);
 
+/*        if (x-2<x || x<x+2) {
+        navigator.vibrate([300, 100, 300]);
+      }
+
+      if (y-2<y || y<y+2) {
+        navigator.vibrate([100, 300, 100]);
+      }*/
+
+      for (i = x-x; i < x; i++) {
+          navigator.vibrate([300, 100, 300]);
+        }
+
+    for (i = y-y; i <y; i++) {
+          navigator.vibrate([100, 300, 100]);
+        }
+
       if (Math.round(tiltLR) == x && Math.round(tiltFB) == y) {
         document.getElementById("winner").style.display = "block";
          // Vibration pattern
@@ -88,13 +104,6 @@ $(document).ready(function () {
             });
       }
 
-      if (x-2<x<x+2) {
-        navigator.vibrate([300, 100, 300]);
-      }
-
-      if (y-2<y<y+2) {
-        navigator.vibrate([100, 300, 100]);
-      }
       
       // Apply the transform to the image
 /*      var logo = document.getElementById("main");
