@@ -74,11 +74,16 @@ $(document).ready(function () {
   var x = 3;
   var y = 6;
     function deviceOrientationHandler(tiltLR, tiltFB, dir) {
-      document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
-      document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
-      document.getElementById("doDirection").innerHTML = Math.round(dir);
+        navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+        document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
+        document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
+        document.getElementById("doDirection").innerHTML = Math.round(dir);
+
       if (Math.round(tiltLR) == x && Math.round(tiltFB) == y) {
+        document.getElementById("doTiltLR") = x;
+        document.getElementById("doTiltFB").innerHTML = y;
         document.getElementById("winner").style.display = "block";
+        navigator.vibrate([500, 100, 250, 100, 1000]);
       }
       
       // Apply the transform to the image
