@@ -35,12 +35,13 @@ $(document).ready(function () {
         });
 
 
+
     init();
 
-    
     function init() {
       if ((window.DeviceMotionEvent) || ('listenForDeviceMovement' in window)) {
         window.addEventListener('devicemotion', deviceMotionHandler, false);
+        console.log("it works!");
       } else {
         document.getElementById("dmEvent").innerHTML = "Not supported on your device or browser.  Sorry."
       }
@@ -78,12 +79,3 @@ $(document).ready(function () {
       var amt = 10;
       return Math.round(val * amt) /  amt;
     }
-
-
-/*deviceMotionEvent.DeviceMotionEvent()
-window.addEventListener('devicemotion', function(event) {
-    var acceleration = deviceMotionEvent.acceleration;
-    console.log(acceleration);
-    console.log(event.acceleration.x + ' m/s2');
-});*/
-
