@@ -17,31 +17,6 @@
         body {
           font-family: sans-serif;
         }
-
-        .main {
-      border: 1px solid black;
-      box-shadow: 10px 10px 5px #888;
-      border-radius: 12px;
-      padding: 20px;
-      background-color: #ddd;
-      margin: 25px;
-      width: 450px;
-      margin-left:auto;
-      margin-right:auto;  
-    }
-    
-    .logo {
-      width:275px;
-      margin-left: auto;
-      margin-right: auto;
-      display: block;
-      padding: 15px;
-    }
-    
-    .container {
-      -webkit-perspective: 300; 
-      perspective: 300;
-    }
     </style>
 
 </head>
@@ -73,7 +48,7 @@
                 <button id="acc" type="button" class="btn btn-info btn-lg btn-block">Acceleration</button>
             </div>
 
-<div class="main">
+<div class="main" id="main">
       <h2>Device Orientation</h2>
       <table>
         <tr>
@@ -81,22 +56,18 @@
           <td id="doEvent"></td>
         </tr>
         <tr>
-          <td>Tilt Left/Right [gamma]</td>
+          <td>Tilt Left/Right [gamma] </td>
           <td id="doTiltLR"></td>
         </tr>
         <tr>
-          <td>Tilt Front/Back [beta]</td>
+          <td>Tilt Front/Back [beta] </td>
           <td id="doTiltFB"></td>
         </tr>
         <tr>
-          <td>Direction [alpha]</td>
+          <td>Direction [alpha] </td>
           <td id="doDirection"></td>
         </tr>
       </table>
-  </div>
-
-  <div class="container" style="-webkit-perspective: 300; perspective: 300;">
-    <img src="parrot.png" id="imgLogo" class="logo">
   </div>
 
     </div>
