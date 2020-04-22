@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="initial-scale=1,maximum-scale=1.0,user-scalable=no">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1.0, user-scalable=no">
 
     <title>Hunt the Thimble!</title>
 
@@ -16,7 +16,7 @@
 <body>
     <div class="container-fluid">
         <div class="page-header">
-            <h1>Hunt the Thimble</h1>
+            <h1>Hunt the Thimble!</h1>
         </div>
 
         <div id="unsupported">
@@ -37,6 +37,36 @@
                 <button id="stop" type="button" class="btn btn-danger btn-lg btn-block">Stop All Vibrations</button>
             </div>
         </div>
+        <div class="col-xs-12 col-sm-6">
+                <button id="acc" type="button" class="btn btn-info btn-lg btn-block">Acceleration</button>
+            </div>
+
+        <div class="main">
+  <h2>Device Motion</h2>
+  <table>
+    <tr>
+      <td>Event Supported</td>
+      <td id="dmEvent"></td>
+    </tr>
+    <tr>
+      <td>acceleration</td>
+      <td id="moAccel"></td>
+    </tr>
+    <tr>
+      <td>accelerationIncludingGravity</td>
+      <td id="moAccelGrav"></td>
+    </tr>
+    <tr>
+      <td>rotationRate</td>
+      <td id="moRotation"></td>
+    </tr>
+    <tr>
+      <td>interval</td>
+      <td id="moInterval"></td>
+    </tr>
+  </table>
+</div>
+
     </div>
 </body>
 <script src="index.js"></script>
