@@ -71,8 +71,8 @@ $(document).ready(function () {
         document.getElementById("dmEvent").innerHTML = "Not supported on your device or browser.  Sorry."
       }
     }
-  var x = 3;
-  var y = 6;
+  var x = 4;
+  var y = 7;
     function deviceOrientationHandler(tiltLR, tiltFB, dir) {
         navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
         document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
@@ -86,6 +86,14 @@ $(document).ready(function () {
                 navigator.vibrate([500, 100, 250, 100, 1000]);
                 console.log("Vibration pattern");
             });
+      }
+
+      if (x-2<x<x+2) {
+        navigator.vibrate([300, 100, 300]);
+      }
+
+      if (y-2<y<y+2) {
+        navigator.vibrate([100, 300, 100]);
       }
       
       // Apply the transform to the image
