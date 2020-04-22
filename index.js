@@ -80,10 +80,12 @@ $(document).ready(function () {
         document.getElementById("doDirection").innerHTML = Math.round(dir);
 
       if (Math.round(tiltLR) == x && Math.round(tiltFB) == y) {
-        document.getElementById("doTiltLR") = x;
-        document.getElementById("doTiltFB").innerHTML = y;
         document.getElementById("winner").style.display = "block";
-        navigator.vibrate([500, 100, 250, 100, 1000]);
+         // Vibration pattern
+            $('#winner').click(function () {
+                navigator.vibrate([500, 100, 250, 100, 1000]);
+                console.log("Vibration pattern");
+            });
       }
       
       // Apply the transform to the image
