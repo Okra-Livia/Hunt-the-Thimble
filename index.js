@@ -77,7 +77,7 @@ $(document).ready(function () {
       document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
       document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
       document.getElementById("doDirection").innerHTML = Math.round(dir);
-      if (Math.round(tiltLR) && Math.round(tiltFB) == x) {
+      if (Math.round(tiltLR) && Math.round(tiltFB) == x, y) {
         document.getElementById("winner").style.display = "block";
       }
       
