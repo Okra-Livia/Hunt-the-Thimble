@@ -71,21 +71,21 @@ $(document).ready(function () {
         document.getElementById("dmEvent").innerHTML = "Not supported on your device or browser.  Sorry."
       }
     }
-  var x = 5;
-  var y = 8;
+  var x = 4;
+  var y = 7;
     function deviceOrientationHandler(tiltLR, tiltFB, dir) {
         navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
         document.getElementById("doTiltLR").innerHTML = Math.round(tiltLR);
         document.getElementById("doTiltFB").innerHTML = Math.round(tiltFB);
         document.getElementById("doDirection").innerHTML = Math.round(dir);
 
-        if (x-2<x || x<x+2) {
+/*        if (x-2<x || x<x+2) {
         navigator.vibrate([300, 100, 300]);
       }
 
       if (y-2<y || y<y+2) {
         navigator.vibrate([100, 300, 100]);
-      }
+      }*/
 
 /*      for (i = x-x; i < x; i++) {
           navigator.vibrate([300, 100, 300]);
