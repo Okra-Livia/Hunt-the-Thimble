@@ -67,10 +67,11 @@ $(document).ready(function () {
       document.getElementById("doDirection").innerHTML = Math.round(dir);
       
       // Apply the transform to the image
-      var logo = document.getElementById("main");
+      
+/*      var logo = document.getElementById("main");
       logo.style.webkitTransform = "rotate("+ tiltLR +"deg) rotate3d(1,0,0, "+ (tiltFB*-1)+"deg)";
       logo.style.MozTransform = "rotate("+ tiltLR +"deg)";
-      logo.style.transform = "rotate("+ tiltLR +"deg) rotate3d(1,0,0, "+ (tiltFB*-1)+"deg)";
+      logo.style.transform = "rotate("+ tiltLR +"deg) rotate3d(1,0,0, "+ (tiltFB*-1)+"deg)";*/
     }
     
     
