@@ -36,35 +36,12 @@ function handleDistance(location){
     var distance = Math.round(Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2))); 
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
-
-    
-
-
-    /*if (distance < 10){
-      navigator.vibrate([50, 25, 50, 25, 50]);
-    }
-    else if (distance < 20){
-      navigator.vibrate([50, 100, 50, 100, 50]);
-    }
-
-    else if (distance < 30){
-      navigator.vibrate([50, 500, 50, 500, 50]);
-    }
-
-    else if (distance < 30){
-      navigator.vibrate([50, 1000, 50, 1000, 50]);
-      console.log("far away");
-    }
-
-    else if (distance == 0){
-      alert("You found the thimble!")
-    }*/
  
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
 
-$(document).ready(function (distance) {
+$(document).ready(function () {
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
     // Determine if vibration is supported in this web browser
@@ -74,11 +51,11 @@ $(document).ready(function (distance) {
     }
 
     $('#unsupported').hide();
-    console.log(distance);
+    
 
     // Vibration pattern
-    $('#pattern').click(function () {
-
+    $('#pattern').click(function (distance) {
+      console.log(distance);
       if (distance < 10) {
         navigator.vibrate([50, 25, 50, 25, 50]);
         output.innerHTML += "Distance to thimble: " + distance + "varmt";
