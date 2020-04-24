@@ -39,13 +39,19 @@ function handleDistance(location){
     output.innerHTML += "Distance to thimble: " + distance + "\n";
 
   if (distance < 10) {
-    document.getElementById("varmt").style.display = "block";
+    //document.getElementById("varmt").style.display = "block";
+    varmt.innerHTML = "varmt";
+    navigator.vibrate([50, 25, 50, 25, 50]);
   }
   else if (distance > 10 && distance < 20){
-    document.getElementById("varmare").style.display = "block";
+    //document.getElementById("varmare").style.display = "block";
+    varmare.innerHTML = "varmare";
+    navigator.vibrate([50, 100, 50, 100, 50]);
   }
   else if (distance > 20 && distance < 40){
-    document.getElementById("kallt").style.display = "block";
+    //document.getElementById("kallt").style.display = "block";
+    kallt.innerHTML = "kallt";
+    navigator.vibrate([50, 1000, 50, 1000, 50]);
   }
 }
 
