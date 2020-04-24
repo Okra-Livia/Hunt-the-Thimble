@@ -29,6 +29,7 @@ function handleOrientation(event) {
 }
 
 function handleDistance(location){
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
     var dx = thimble[0] - location [0];
     var dy = thimble[1] - location [1]; 
 
@@ -36,7 +37,18 @@ function handleDistance(location){
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
 
-    if (distance == 0) {
+    if (distance > 10){
+      navigator.vibrate([50, 25, 50, 25, 50]);
+    }
+    else if (distance > 20){
+      navigator.vibrate([50, 50, 50, 50, 50]);
+    }
+
+    else if (distance > 30){
+      navigator.vibrate([50, 100, 50, 100, 50]);
+    }
+
+    else if (distance == 0){
       alert("You found the thimble!")
     }
  
