@@ -28,7 +28,9 @@ function handleOrientation(event) {
 
 }
 
-function handleDistance(location){
+function handleDistance(location){ 
+//hur ofta körs den? keff pga startar om varje gång som den uppdateras??
+  //kör som separat grej vibben eller?
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
     var dx = thimble[0] - location [0];
     var dy = thimble[1] - location [1]; 
@@ -38,33 +40,6 @@ function handleDistance(location){
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
 
-  if (distance < 10) {
-    document.getElementById("kallt").style.display = "none";
-    document.getElementById("varmare").style.display = "none";
-    document.getElementById("varmt").style.display = "block";
-      if (navigator.vibrate) { 
-        window.navigator.vibrate([20, 25, 20, 25, 20]); 
-      } 
-    //navigator.vibrate([50, 25, 50, 25, 50]);
-  }
-  else if (distance > 10 && distance < 20){
-    document.getElementById("varmt").style.display = "none";
-    document.getElementById("kallt").style.display = "none";
-    document.getElementById("varmare").style.display = "block";
-    if (navigator.vibrate) { 
-        window.navigator.vibrate([50, 300, 50, 300, 50]); 
-      }
-    //navigator.vibrate([50, 100, 50, 100, 50]);
-  }
-  else if (distance > 20 && distance < 50){
-    document.getElementById("varmt").style.display = "none";
-    document.getElementById("varmare").style.display = "none";
-    document.getElementById("kallt").style.display = "block";
-    if (navigator.vibrate) { 
-        window.navigator.vibrate([50, 1000, 50, 1000, 50]); 
-      }
-    //navigator.vibrate([50, 1000, 50, 1000, 50]);
-  }
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
@@ -89,14 +64,30 @@ $(document).ready(function () {
     $('#pattern').click(function (distance) {
       console.log(distance);
       if (distance < 10) {
-        navigator.vibrate([50, 25, 50, 25, 50]);
+        document.getElementById("kallt").style.display = "none";
+        document.getElementById("varmare").style.display = "none";
+        document.getElementById("varmt").style.display = "block";
+          if (navigator.vibrate) { 
+            window.navigator.vibrate([20, 25, 20, 25, 20]); 
+          }
       }
-      else if (distance > 10 && distance < 20) {
-        navigator.vibrate([50, 100, 50, 100, 50]);
+      else if (distance > 10 && distance < 20){
+        document.getElementById("varmt").style.display = "none";
+        document.getElementById("kallt").style.display = "none";
+        document.getElementById("varmare").style.display = "block";
+        if (navigator.vibrate) { 
+            window.navigator.vibrate([50, 300, 50, 300, 50]); 
+          }
       }
-      else if (distance > 20 && distance < 40) {
-        navigator.vibrate([50, 1000, 50, 1000, 50]);
+      else if (distance > 20 && distance < 50){
+        document.getElementById("varmt").style.display = "none";
+        document.getElementById("varmare").style.display = "none";
+        document.getElementById("kallt").style.display = "block";
+        if (navigator.vibrate) { 
+            window.navigator.vibrate([50, 1000, 50, 1000, 50]); 
+          }
       }
+    
 
 
 
@@ -123,15 +114,3 @@ $(document).ready(function () {
         console.log("Stop all vibrations");
     });
   });
-
-/*function vibPattern() {
-  navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-  navigator.vibrate([500, 100, 250, 100, 1000]);
-  console.log("Vibration pattern");
-};
-
-function stopVibration() {
-  navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-  navigator.vibrate(0);
-  console.log("Stop all vibrations");
-};*/
