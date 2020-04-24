@@ -41,6 +41,7 @@ function handleDistance(location){
   if (distance < 10) {
     document.getElementById("kallt").style.display = "none";
     document.getElementById("varmare").style.display = "none";
+    document.getElementById("more").style.display = "none";
     document.getElementById("varmt").style.display = "block";
       if (navigator.vibrate) { 
         window.navigator.vibrate(0);
@@ -48,9 +49,16 @@ function handleDistance(location){
       } 
     //navigator.vibrate([50, 25, 50, 25, 50]);
   }
-  else if (distance > 10 && distance < 20){
+    else if (distance > 10 && distance < 20){
+    document.getElementById("varmt").style.display = "none";
+    document.getElementById("varmare").style.display = "none";
+    document.getElementById("kallt").style.display = "none";
+    document.getElementById("more").style.display = "block";
+  }
+  else if (distance > 20 && distance < 30){
     document.getElementById("varmt").style.display = "none";
     document.getElementById("kallt").style.display = "none";
+    document.getElementById("more").style.display = "none";
     document.getElementById("varmare").style.display = "block";
     if (navigator.vibrate) { 
         window.navigator.vibrate(0);
@@ -58,7 +66,8 @@ function handleDistance(location){
       }
     //navigator.vibrate([50, 100, 50, 100, 50]);
   }
-  else if (distance > 20 && distance < 50){
+
+  else if (distance > 30 && distance < 50){
     document.getElementById("varmt").style.display = "none";
     document.getElementById("varmare").style.display = "none";
     document.getElementById("kallt").style.display = "block";
