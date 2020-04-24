@@ -7,16 +7,6 @@ var maxY = room.clientHeight - ball.clientHeight;
 
 var thimble = [0, 0];
 
-function vibPattern() {
-  navigator.vibrate([500, 100, 250, 100, 1000]);
-  console.log("Vibration pattern");
-};
-
-function stopVibration() {
-  navigator.vibrate(0);
-  console.log("Stop all vibrations");
-};
-
 function handleOrientation(event) {
   var x = event.gamma;  // In degree in the range [-180,180]
   var y = event.beta; // In degree in the range [-90,90]
@@ -52,5 +42,16 @@ function handleDistance(location){
  
 }
 
-
 window.addEventListener("deviceorientation", handleOrientation);
+
+function vibPattern() {
+  navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+  navigator.vibrate([500, 100, 250, 100, 1000]);
+  console.log("Vibration pattern");
+};
+
+function stopVibration() {
+  navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+  navigator.vibrate(0);
+  console.log("Stop all vibrations");
+};
