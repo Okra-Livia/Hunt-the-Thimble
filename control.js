@@ -38,14 +38,14 @@ function handleDistance(location){
     output.innerHTML += "Distance to thimble: " + distance + "\n";
 
     if (distance > 10){
-      navigator.vibrate([50, 25, 50, 25, 50]);
+      navigator.vibrate = navigator.vibrate([50, 25, 50, 25, 50]);
     }
     else if (distance > 20){
-      navigator.vibrate([50, 50, 50, 50, 50]);
+      navigator.vibrate = navigator.vibrate([50, 50, 50, 50, 50]);
     }
 
     else if (distance > 30){
-      navigator.vibrate([50, 100, 50, 100, 50]);
+      navigator.vibrate = navigator.vibrate([50, 100, 50, 100, 50]);
     }
 
     else if (distance == 0){
