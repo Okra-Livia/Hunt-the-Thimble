@@ -37,30 +37,13 @@ function handleDistance(location){
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
 
-    if (distance < 10){
-      navigator.vibrate = navigator.vibrate([50, 25, 50, 25, 50]);
-    }
-    else if (distance < 20){
-      navigator.vibrate = navigator.vibrate([50, 100, 50, 100, 50]);
-    }
-
-    else if (distance < 30){
-      navigator.vibrate = navigator.vibrate([50, 500, 50, 500, 50]);
-    }
-
-    else if (distance < 30){
-      navigator.vibrate = navigator.vibrate([50, 1000, 50, 1000, 50]);
-    }
-
-    else if (distance == 0){
-      alert("You found the thimble!")
-    }
+    
  
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
 
-$(document).ready(function () {
+$(document).ready(function (distance) {
             navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
             // Determine if vibration is supported in this web browser
@@ -73,7 +56,25 @@ $(document).ready(function () {
 
             // Vibration pattern
             $('#pattern').click(function () {
-                navigator.vibrate([500, 100, 250, 100, 1000]);
+                if (distance < 10){
+                  navigator.vibrate([50, 25, 50, 25, 50]);
+                }
+                else if (distance < 20){
+                  navigator.vibrate([50, 100, 50, 100, 50]);
+                }
+
+                else if (distance < 30){
+                  navigator.vibrate([50, 500, 50, 500, 50]);
+                }
+
+                else if (distance < 30){
+                  navigator.vibrate([50, 1000, 50, 1000, 50]);
+                  console.log("far away");
+                }
+
+                else if (distance == 0){
+                  alert("You found the thimble!")
+                }
                 console.log("Vibration pattern");
             });
 
