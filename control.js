@@ -34,9 +34,19 @@ function handleDistance(location){
     var dy = thimble[1] - location [1]; 
 
     var distance = Math.round(Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2))); 
+    console.log(distance);
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
- 
+
+  if (distance < 10) {
+    document.getElementById("varmt").style.display = "block";
+  }
+  else if (distance > 10 && distance < 20){
+    document.getElementById("varmare").style.display = "block";
+  }
+  else if (distance > 20 && distance < 40){
+    document.getElementById("kallt").style.display = "block";
+  }
 }
 
 window.addEventListener("deviceorientation", handleOrientation);
@@ -62,15 +72,12 @@ $(document).ready(function () {
       console.log(distance);
       if (distance < 10) {
         navigator.vibrate([50, 25, 50, 25, 50]);
-        output.innerHTML += "Distance to thimble: " + distance + "varmt";
       }
       else if (distance > 10 && distance < 20) {
         navigator.vibrate([50, 100, 50, 100, 50]);
-        output.innerHTML += "Distance to thimble: " + distance + "varmare";
       }
       else if (distance > 20 && distance < 40) {
         navigator.vibrate([50, 1000, 50, 1000, 50]);
-        output.innerHTML += "Distance to thimble: " + distance + "kallt";
       }
 
 
