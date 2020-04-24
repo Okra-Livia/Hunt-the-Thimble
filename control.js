@@ -66,26 +66,19 @@ $(document).ready(function () {
       if (distance < 10) {
         document.getElementById("kallt").style.display = "none";
         document.getElementById("varmare").style.display = "none";
-        document.getElementById("varmt").style.display = "block";
-          if (navigator.vibrate) { 
-            window.navigator.vibrate([20, 25, 20, 25, 20]-1); 
-          }
+        navigator.vibrate([20, 25, 20, 25, 20]-1); 
       }
       else if (distance > 10 && distance < 20){
         document.getElementById("varmt").style.display = "none";
         document.getElementById("kallt").style.display = "none";
         document.getElementById("varmare").style.display = "block";
-        if (navigator.vibrate) { 
-            window.navigator.vibrate([50, 300, 50, 300, 50]-1); 
-          }
+        navigator.vibrate([50, 300, 50, 300, 50]-1); 
       }
       else if (distance > 20 && distance < 50){
         document.getElementById("varmt").style.display = "none";
         document.getElementById("varmare").style.display = "none";
         document.getElementById("kallt").style.display = "block";
-        if (navigator.vibrate) { 
-            window.navigator.vibrate([50, 1000, 50, 1000, 50]-1); 
-          }
+        navigator.vibrate([50, 1000, 50, 1000, 50]-1); 
       }
     
 
