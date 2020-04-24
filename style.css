@@ -29,3 +29,7 @@ html, body {
     0 0 100px 60px #f0f,
     0 0 140px 90px #0ff;
   }
+
+  .output {
+    font-size: 25px !important;
+  }

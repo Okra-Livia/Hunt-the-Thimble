@@ -40,17 +40,17 @@ function handleDistance(location){
 
   if (distance < 10) {
     //document.getElementById("varmt").style.display = "block";
-    document.getElementById("varmt").innerHTML += "varmt";
+    document.getElementById("varmt").innerHTML = "varmt" + "\n";
     //navigator.vibrate([50, 25, 50, 25, 50]);
   }
   else if (distance > 10 && distance < 20){
     //document.getElementById("varmare").style.display = "block";
-    document.getElementById("varmare").innerHTML += "varmare";
+    document.getElementById("varmare").innerHTML = "varmare" + "\n";
     //navigator.vibrate([50, 100, 50, 100, 50]);
   }
   else if (distance > 20 && distance < 40){
     //document.getElementById("kallt").style.display = "block";
-    document.getElementById("kallt").innerHTML += "kallt";
+    document.getElementById("kallt").innerHTML = "kallt" + "\n";
     //navigator.vibrate([50, 1000, 50, 1000, 50]);
   }
 }
