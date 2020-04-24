@@ -79,14 +79,17 @@ $(document).ready(function (distance) {
     // Vibration pattern
     $('#pattern').click(function () {
 
-      if (distance <= 10) {
+      if (distance < 10) {
         navigator.vibrate([50, 25, 50, 25, 50]);
+        output.innerHTML += "Distance to thimble: " + distance + "varmt";
       }
       else if (distance > 10 && distance < 20) {
         navigator.vibrate([50, 100, 50, 100, 50]);
+        output.innerHTML += "Distance to thimble: " + distance + "varmare";
       }
-      else if (distance > 20 && distance <= 40) {
+      else if (distance > 20 && distance < 40) {
         navigator.vibrate([50, 1000, 50, 1000, 50]);
+        output.innerHTML += "Distance to thimble: " + distance + "kallt";
       }
 
 
