@@ -1,8 +1,8 @@
-var ball   = document.querySelector('#ball');
-var room = document.querySelector('#room');
-var output = document.querySelector('.output');
+var ball = document.querySelector(".ball");
+var room = document.querySelector(".room");
+var output = document.querySelector(".output");
 
-var maxX = room.clientWidth  - ball.clientWidth;
+var maxX = room.clientWidth - ball.clientWidth;
 var maxY = room.clientHeight - ball.clientHeight;
 
 var thimble = [0, 0];
@@ -39,4 +39,4 @@ function handleDistance(location){
 }
 
 
-window.addEventListener('deviceorientation', handleOrientation);
+window.addEventListener("deviceorientation", handleOrientation);
