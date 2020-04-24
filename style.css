@@ -3,6 +3,7 @@ html, body {
     height: 100%;
     background-color: #000000;
     color: #ffffff;
+    font-family: "Avenir" !important;
     }
 .room {
     position: relative;
@@ -14,6 +15,7 @@ html, body {
     border-radius: 10px;
     background-color: #000000;
     color: #ffffff;
+    font-family: "Avenir" !important;
   }
   
   .ball {
@@ -32,4 +34,5 @@ html, body {
 
   .output {
     font-size: 25px !important;
+    font-family: "Avenir" !important;
   }
