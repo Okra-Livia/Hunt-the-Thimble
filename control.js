@@ -44,7 +44,31 @@ function handleDistance(location){
 
 window.addEventListener("deviceorientation", handleOrientation);
 
-function vibPattern() {
+$(document).ready(function () {
+            navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+
+            // Determine if vibration is supported in this web browser
+            if (!navigator.vibrate) {
+                $('#supported').hide();
+                return;
+            }
+
+            $('#unsupported').hide();
+
+            // Vibration pattern
+            $('#pattern').click(function () {
+                navigator.vibrate([500, 100, 250, 100, 1000]);
+                console.log("Vibration pattern");
+            });
+
+            // Stop all vibrations
+            $('#stop').click(function () {
+                navigator.vibrate(0);
+                console.log("Stop all vibrations");
+            });
+        });
+
+/*function vibPattern() {
   navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
   navigator.vibrate([500, 100, 250, 100, 1000]);
   console.log("Vibration pattern");
@@ -54,4 +78,4 @@ function stopVibration() {
   navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
   navigator.vibrate(0);
   console.log("Stop all vibrations");
-};
+};*/
