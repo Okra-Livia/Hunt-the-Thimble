@@ -43,7 +43,7 @@ function handleDistance(location){
     document.getElementById("varmare").style.display = "none";
     document.getElementById("varmt").style.display = "block";
       if (navigator.vibrate) { 
-        window.navigator.vibrate(0);
+        navigator.vibrate(0);
         window.navigator.vibrate([20, 25, 20, 25, 20]); 
       } 
     //navigator.vibrate([50, 25, 50, 25, 50]);
@@ -53,7 +53,7 @@ function handleDistance(location){
     document.getElementById("kallt").style.display = "none";
     document.getElementById("varmare").style.display = "block";
     if (navigator.vibrate) { 
-        window.navigator.vibrate(0);
+        navigator.vibrate(0);
         window.navigator.vibrate([50, 300, 50, 300, 50]); 
       }
     //navigator.vibrate([50, 100, 50, 100, 50]);
@@ -63,7 +63,7 @@ function handleDistance(location){
     document.getElementById("varmare").style.display = "none";
     document.getElementById("kallt").style.display = "block";
     if (navigator.vibrate) { 
-        window.navigator.vibrate(0);
+        navigator.vibrate(0);
         window.navigator.vibrate([50, 1000, 50, 1000, 50]); 
       }
     //navigator.vibrate([50, 1000, 50, 1000, 50]);
