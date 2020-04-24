@@ -34,8 +34,6 @@ function handleDistance(location){
     var dy = thimble[1] - location [1]; 
 
     var distance = Math.round(Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2))); 
-    navigator.vibrate([50, 1000, 50, 1000, 50]);
-    console.log("i'm vibrating");
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
  
@@ -54,6 +52,10 @@ $(document).ready(function () {
 
     $('#unsupported').hide();
     
+    $('#test').click(function () {
+        navigator.vibrate([50, 100, 50, 100, 50]);
+        console.log("test");
+    });
 
     // Vibration pattern
     $('#pattern').click(function (distance) {
