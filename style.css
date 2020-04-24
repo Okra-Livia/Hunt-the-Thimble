@@ -4,6 +4,7 @@ html, body {
     background-color: #000000;
     color: #ffffff;
     font-family: "Avenir" !important;
+    font-size: 20px;
     }
 .room {
     position: relative;
