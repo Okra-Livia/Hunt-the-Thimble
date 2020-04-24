@@ -37,19 +37,7 @@ function handleDistance(location){
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
 
-    switch(distance){
-      case distance < 10:
-        navigator.vibrate([50, 25, 50, 25, 50]);
-      break;
-      case distance > 10 && distance < 20:
-        navigator.vibrate([50, 100, 50, 100, 50]);
-      break;
-      case distance > 20 && distance < 30:
-        navigator.vibrate([50, 500, 50, 500, 50]);
-      break;
-      default:
-        navigator.vibrate([50, 1000, 50, 1000, 50]);
-    }
+    
 
 
     /*if (distance < 10){
@@ -89,7 +77,19 @@ $(document).ready(function (distance) {
 
             // Vibration pattern
             $('#pattern').click(function () {
-                navigator.vibrate([500, 100, 250, 100, 1000]);
+                switch(distance){
+                  case distance < 10:
+                    navigator.vibrate([50, 25, 50, 25, 50]);
+                  break;
+                  case distance > 10 && distance < 20:
+                    navigator.vibrate([50, 100, 50, 100, 50]);
+                  break;
+                  case distance > 20 && distance < 40:
+                    navigator.vibrate([50, 500, 50, 500, 50]);
+                  break;
+                  default:
+                    navigator.vibrate([50, 1000, 50, 1000, 50]);
+                }
                 console.log("Vibration pattern");
             });
 
