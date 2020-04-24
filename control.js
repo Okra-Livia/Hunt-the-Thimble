@@ -7,6 +7,28 @@ var maxY = room.clientHeight - ball.clientHeight;
 
 var thimble = [0, 0];
 
+$(document).ready(function () {
+            navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+
+            // Determine if vibration is supported in this web browser
+            if (!navigator.vibrate) {
+                $('#supported').hide();
+                return;
+            }
+
+            // Vibration pattern
+            $('#pattern').click(function () {
+                navigator.vibrate([500, 100, 250, 100, 1000]);
+                console.log("Vibration pattern");
+            });
+
+            // Stop all vibrations
+            $('#stop').click(function () {
+                navigator.vibrate(0);
+                console.log("Stop all vibrations");
+            });
+        });
+
 function handleOrientation(event) {
   var x = event.gamma;  // In degree in the range [-180,180]
   var y = event.beta; // In degree in the range [-90,90]
@@ -35,6 +57,10 @@ function handleDistance(location){
     var distance = Math.round(Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2))); 
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
+
+    if (distance == 0) {
+      alert("You found the thimble!")
+    }
  
 }
 
