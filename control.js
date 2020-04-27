@@ -45,6 +45,7 @@ function handleDistance(location){
   { start: [181,0,0], stop: [138,228,255] }]
   var start = */
 }
+window.addEventListener("deviceorientation", handleOrientation);
 
 $(document).ready(function () {
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
@@ -60,7 +61,7 @@ $(document).ready(function () {
     // Vibration pattern
     $('#pattern').click(function (distance) {
       console.log(distance);
-      
+
       if (distance < 10) {
         ball.style.backgroundColor = "red";
         document.getElementById("kallt").style.display = "none";
@@ -91,6 +92,3 @@ $(document).ready(function () {
         console.log("Stop all vibrations");
     });
   });
-
-
-window.addEventListener("deviceorientation", handleOrientation);
