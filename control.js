@@ -1,6 +1,7 @@
 var ball = document.querySelector(".ball");
 var room = document.querySelector(".room");
 var output = document.querySelector(".output");
+var where = document.getElementById("where");
 
 var maxX = room.clientWidth - ball.clientWidth;
 var maxY = room.clientHeight - ball.clientHeight;
@@ -28,26 +29,21 @@ function handleOrientation(event) {
 
 }
 
-function handleDistance(location){ 
-//hur ofta körs den? keff pga startar om varje gång som den uppdateras??
-  //kör som separat grej vibben eller?
-    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-
+function handleDistance(location){
     var dx = thimble[0] - location [0];
     var dy = thimble[1] - location [1]; 
 
     var distance = Math.round(Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2))); 
-    console.log(distance);
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
-
- /*  var gradient = [
-  { start: [181,0,0], stop: [138,228,255] }]
-  var start = */
+ 
 }
-window.addEventListener("deviceorientation", handleOrientation);
 
-$(document).ready(function () {
+
+window.addEventListener('deviceorientation', handleOrientation);
+
+
+$(document).ready(function (distance) {
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
     // Determine if vibration is supported in this web browser
@@ -59,28 +55,22 @@ $(document).ready(function () {
     $('#unsupported').hide();
 
     // Vibration pattern
-    $('#pattern').click(function (distance) {
+    $('#pattern').click(function () {
       console.log(distance);
 
       if (distance < 10) {
         ball.style.backgroundColor = "red";
-        document.getElementById("kallt").style.display = "none";
-        document.getElementById("varmare").style.display = "none";
-        document.getElementById("varmt").style.display = "block";
+        where.innerHTML = "varmt";
         navigator.vibrate([20, 25, 20, 25, 20]); 
       }
       else if (distance > 10 && distance < 20){
         ball.style.backgroundColor = "purple"; 
-        document.getElementById("varmt").style.display = "none";
-        document.getElementById("kallt").style.display = "none";
-        document.getElementById("varmare").style.display = "block";
+        where.innerHTML = "varmare";
         navigator.vibrate([50, 300, 50, 300, 50]);
       }
       else if (distance > 20 && distance <= 57){
         ball.style.backgroundColor = "blue";
-        document.getElementById("varmt").style.display = "none";
-        document.getElementById("varmare").style.display = "none";
-        document.getElementById("kallt").style.display = "block";
+        where.innerHTML = "kallt";
         navigator.vibrate([50, 1000, 50, 1000, 50]);
       }
         console.log("Vibration pattern");
