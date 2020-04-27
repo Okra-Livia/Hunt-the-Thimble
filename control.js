@@ -41,22 +41,16 @@ function handleDistance(location){
     output.innerHTML += "Distance to thimble: " + distance + "\n";
 
     if (distance < 10) {
-          ball.style.backgroundColor = "red";
-        }
-        else if (distance > 10 && distance < 20){
-          ball.style.backgroundColor = "purple"; 
-        }
-        else if (distance > 20 && distance < 50){
-          ball.style.backgroundColor = "blue";
-        }
-
- /*  var gradient = [
-  { start: [181,0,0], stop: [138,228,255] }]
-  var start = */
-  //vibration(distance);
+      ball.style.backgroundColor = "red";
+    }
+    else if (distance > 10 && distance < 20){
+      ball.style.backgroundColor = "purple"; 
+    }
+    else if (distance > 20){
+      ball.style.backgroundColor = "blue";
+    };
 }
 
-//window.addEventListener("distanceFromGoal", handleDistance);
 
 $(document).ready(function (distance) {
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
