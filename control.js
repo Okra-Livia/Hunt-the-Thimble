@@ -47,7 +47,7 @@ function handleDistance(location){
 }
 
 function vibration(distance){
-  
+
 }
 
 $(document).ready(function () {
@@ -69,23 +69,26 @@ $(document).ready(function () {
     // Vibration pattern
     $('#pattern').click(function (distance) {
       console.log(distance);
-      
-
-      switch(distance){
-        case distance < 10:
-          navigator.vibrate([50, 25, 50, 25, 50]);
-          ball.style.backgroundColor = "red";
-        break;
-        case distance > 10 && distance < 20:
-          navigator.vibrate([50, 100, 50, 100, 50]);
-          ball.style.backgroundColor = "purple";
-        break;
-        case distance > 20 && distance < 40:
-          navigator.vibrate([50, 500, 50, 500, 50]);
-          ball.style.backgroundColor = "blue";
-        break;
-        default:
-          navigator.vibrate([50, 1000, 50, 1000, 50]);
+      if (distance < 10) {
+        document.getElementById("kallt").style.display = "none";
+        document.getElementById("varmare").style.display = "none";
+        document.getElementById("varmt").style.display = "block";
+        navigator.vibrate([20, 25, 20, 25, 20]-1); 
+        ball.css({"background-color":"red"});
+      }
+      else if (distance > 10 && distance < 20){
+        document.getElementById("varmt").style.display = "none";
+        document.getElementById("kallt").style.display = "none";
+        document.getElementById("varmare").style.display = "block";
+        navigator.vibrate([50, 300, 50, 300, 50]-1); 
+        ball.css({"background-color":"purple"});
+      }
+      else if (distance > 20){
+        document.getElementById("varmt").style.display = "none";
+        document.getElementById("varmare").style.display = "none";
+        document.getElementById("kallt").style.display = "block";
+        navigator.vibrate([50, 1000, 50, 1000, 50]-1); 
+        ball.css({"background-color":"blue"});
       }
 
         console.log("Vibration pattern");
