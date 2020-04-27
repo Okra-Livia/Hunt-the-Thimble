@@ -82,16 +82,16 @@ $(document).ready(function (distance) {
       $('#pattern').click(function () {
 
           if (distance < 10) {
-            navigator.vibrate(cold);
-            navigator.vibrate(0);
+            navigator.vibrate(warm);
+            document.getElementById("test").innerHTML = "nära";
           }
           else if (distance > 10 && distance < 20) {
             navigator.vibrate(warmer);
-            navigator.vibrate(0);
+            document.getElementById("test").innerHTML = "ganska nära";
           }
           else if (distance > 20) {
             navigator.vibrate(cold);
-            navigator.vibrate(0);
+            document.getElementById("test").innerHTML = "långt borta";
           }
           console.log("Vibration pattern ");
       });
