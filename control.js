@@ -74,6 +74,11 @@ $(document).ready(function (distance) {
 
       $('#unsupported').hide();
 
+      $('#test').click(function () {
+        navigator.vibrate([50, 1000, 50, 1000, 50]);
+        console.log("test");
+    });
+
       var cold = [50, 1000, 50, 1000, 50];
       var warmer = [50, 300, 50, 300, 50];
       var warm = [20, 25, 20, 25, 20]; 
@@ -95,7 +100,7 @@ $(document).ready(function (distance) {
 
       // Stop all vibrations
       $('#stop').click(function () {
-          navigator.vibrate([50, 1000, 50, 1000, 50]);
+          navigator.vibrate(0);
           console.log("Stop all vibrations");
       });
         });
