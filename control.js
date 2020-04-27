@@ -74,16 +74,17 @@ $(document).ready(function (distance) {
 
       $('#unsupported').hide();
 
-      var cold = [20, 25, 20, 25, 20];
+      var cold = [50, 1000, 50, 1000, 50];
       var warmer = [50, 300, 50, 300, 50];
       var warm = [20, 25, 20, 25, 20]; 
 
       // Vibration pattern
       $('#pattern').click(function () {
-          navigator.vibrate(warm);
-          /*if (distance < 10) {
+
+          while (distance < 10) {
             navigator.vibrate(warm);
           }
+          /*
           else if (distance > 10 && distance < 20) {
             navigator.vibrate(warmer);
           }
