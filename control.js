@@ -72,10 +72,11 @@ $(document).ready(function (distance) {
       $('#unsupported').hide();
 
       // Vibration pattern
+      if (distance > 20) {
       $('#pattern').click(function () {
-          navigator.vibrate([500, 100, 250, 100, 1000]);
+          navigator.vibrate([20, 25, 20, 25, 20]);
           console.log("Vibration pattern");
-      });
+      });}
 
       // Stop all vibrations
       $('#stop').click(function () {
