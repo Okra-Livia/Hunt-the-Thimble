@@ -53,7 +53,30 @@ function handleVibration(distance){
 // enable vibration support
 navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
-if (navigator.vibrate) {
+if (window.navigator && window.navigator.vibrate) {
+  console.log("yes!");
+   // Vibration API is supported
+   if (distance < 10) {
+    navigator.vibrate([20, 25, 20, 25, 20]);
+    ball.style.backgroundColor = "red";
+  }
+  else if (distance > 10 && distance < 20){
+    navigator.vibrate([50, 300, 50, 300, 50]);
+    ball.style.backgroundColor = "purple"; 
+    }
+  else if (distance > 20 && distance < 50){
+    navigator.vibrate([50, 1000, 50, 1000, 50]); 
+    ball.style.backgroundColor = "blue";
+  }
+
+  $('.stop').click(function() {
+    navigator.vibrate(0);
+}); 
+} else {
+   // Not supported
+   console.log("nope");
+}
+/*if (navigator.vibrate) {
   // vibration API supported
   console.log("yes!");
 }
@@ -69,7 +92,7 @@ if (navigator.vibrate) {
   else if (distance > 20 && distance < 50){
     navigator.vibrate([50, 1000, 50, 1000, 50]); 
     ball.style.backgroundColor = "blue";
-  }
+  }*/
 
   navigator.vibrate(0)
 }
