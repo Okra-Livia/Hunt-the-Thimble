@@ -46,10 +46,6 @@ function handleDistance(location){
   var start = */
 }
 
-function vibration(distance){
-
-}
-
 $(document).ready(function () {
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
@@ -60,37 +56,32 @@ $(document).ready(function () {
     }
 
     $('#unsupported').hide();
-    
-    $('#test').click(function () {
-        navigator.vibrate([50, 100, 50, 100, 50]);
-        console.log("test");
-    });
 
     // Vibration pattern
     $('#pattern').click(function (distance) {
       console.log(distance);
+      
       if (distance < 10) {
+        ball.style.backgroundColor = "red";
         document.getElementById("kallt").style.display = "none";
         document.getElementById("varmare").style.display = "none";
         document.getElementById("varmt").style.display = "block";
-        navigator.vibrate([20, 25, 20, 25, 20]-1); 
-        ball.css({"background-color":"red"});
+        navigator.vibrate([20, 25, 20, 25, 20]); 
       }
       else if (distance > 10 && distance < 20){
+        ball.style.backgroundColor = "purple"; 
         document.getElementById("varmt").style.display = "none";
         document.getElementById("kallt").style.display = "none";
         document.getElementById("varmare").style.display = "block";
-        navigator.vibrate([50, 300, 50, 300, 50]-1); 
-        ball.css({"background-color":"purple"});
+        navigator.vibrate([50, 300, 50, 300, 50]);
       }
-      else if (distance > 20){
+      else if (distance > 20 && distance <= 57){
+        ball.style.backgroundColor = "blue";
         document.getElementById("varmt").style.display = "none";
         document.getElementById("varmare").style.display = "none";
         document.getElementById("kallt").style.display = "block";
-        navigator.vibrate([50, 1000, 50, 1000, 50]-1); 
-        ball.css({"background-color":"blue"});
+        navigator.vibrate([50, 1000, 50, 1000, 50]);
       }
-
         console.log("Vibration pattern");
     });
 
