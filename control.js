@@ -46,7 +46,27 @@ function handleDistance(location){
   var start = */
 }
 
-$(document).ready(function () {
+function vibration(distance){
+  navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+  switch(distance){
+        case distance < 10:
+          navigator.vibrate([50, 25, 50, 25, 50]);
+          ball.style.backgroundColor = "red";
+        break;
+        case distance > 10 && distance < 20:
+          navigator.vibrate([50, 100, 50, 100, 50]);
+          ball.style.backgroundColor = "purple";
+        break;
+        case distance > 20 && distance < 40:
+          navigator.vibrate([50, 500, 50, 500, 50]);
+          ball.style.backgroundColor = "blue";
+        break;
+        default:
+          navigator.vibrate([50, 1000, 50, 1000, 50]);
+      }
+}
+
+/*$(document).ready(function () {
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
     // Determine if vibration is supported in this web browser
@@ -67,22 +87,7 @@ $(document).ready(function () {
       console.log(distance);
       
 
-      switch(distance){
-        case distance < 10:
-          navigator.vibrate([50, 25, 50, 25, 50]);
-          ball.style.backgroundColor = "red";
-        break;
-        case distance > 10 && distance < 20:
-          navigator.vibrate([50, 100, 50, 100, 50]);
-          ball.style.backgroundColor = "purple";
-        break;
-        case distance > 20 && distance < 40:
-          navigator.vibrate([50, 500, 50, 500, 50]);
-          ball.style.backgroundColor = "blue";
-        break;
-        default:
-          navigator.vibrate([50, 1000, 50, 1000, 50]);
-      }
+      
 
         console.log("Vibration pattern");
     });
@@ -92,7 +97,7 @@ $(document).ready(function () {
         navigator.vibrate(0);
         console.log("Stop all vibrations");
     });
-  });
+  });*/
 
 
 window.addEventListener("deviceorientation", handleOrientation);
