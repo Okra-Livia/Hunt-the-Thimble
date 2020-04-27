@@ -66,7 +66,7 @@ $(document).ready(function (distance) {
     });
 
     // Vibration pattern
-    $('#pattern').click(function (distance) {
+    $('#pattern').click(function () {
     if (distance < 10) {
         document.getElementById("kallt").style.display = "none";
         document.getElementById("varmare").style.display = "none";
