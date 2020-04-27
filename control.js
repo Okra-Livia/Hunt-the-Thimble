@@ -37,7 +37,6 @@ function handleDistance(location){
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
     leads(distance);
- 
 }
 
 

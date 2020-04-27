@@ -17,6 +17,7 @@ html, body {
     background-color: #000000;
     color: #ffffff;
     font-family: "Avenir" !important;
+    font-size: 40px;
   }
   
   .ball {
@@ -43,4 +44,5 @@ html, body {
   .row {
     background-color: #000000 !important;
     color: #ffffff;
+    font-size: 20px;
   }
