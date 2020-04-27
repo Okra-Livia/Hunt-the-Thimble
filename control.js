@@ -63,7 +63,6 @@ function leads(distance){
 
 window.addEventListener('getLeads', handleDistance);
 
-
 function handleVibration(distance){
   window.navigator = window.navigator || {};
       if (navigator.vibrate === undefined) {
@@ -81,39 +80,3 @@ function handleVibration(distance){
       }
 }
 
-/*$(document).ready(function (distance) {
-      navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-
-      // Determine if vibration is supported in this web browser
-      if (!navigator.vibrate) {
-          $('#supported').hide();
-          return;
-      }
-
-      $('#unsupported').hide();
-
-      var cold = [50, 1000, 50, 1000, 50];
-      var warmer = [50, 300, 50, 300, 50];
-      var warm = [20, 25, 20, 25, 20]; 
-
-      // Vibration pattern
-      $('#pattern').click(function () {
-        navigator.vibrate(cold);
-          /*if (distance < 10) {
-            navigator.vibrate(warm);
-          }
-          else if (distance > 10 && distance < 20) {
-            navigator.vibrate(warmer);
-          }
-          else if (distance > 20) {
-            navigator.vibrate(cold);
-          }
-          console.log("Vibration pattern");
-      });
-
-      // Stop all vibrations
-      $('#stop').click(function () {
-          navigator.vibrate(0);
-          console.log("Stop all vibrations");
-      });
-        });*/
