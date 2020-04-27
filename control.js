@@ -77,21 +77,23 @@ $(document).ready(function (distance) {
       var cold = [50, 1000, 50, 1000, 50];
       var warmer = [50, 300, 50, 300, 50];
       var warm = [20, 25, 20, 25, 20]; 
-      var i;
+
       // Vibration pattern
       $('#pattern').click(function () {
 
-          for (i in distance < 10) {
+          if (distance < 10) {
             navigator.vibrate(cold);
-          };
-          /*
+            navigator.vibrate(0);
+          }
           else if (distance > 10 && distance < 20) {
             navigator.vibrate(warmer);
+            navigator.vibrate(0);
           }
           else if (distance > 20) {
             navigator.vibrate(cold);
-          }*/
-          console.log("Vibration pattern " + distance.value);
+            navigator.vibrate(0);
+          }
+          console.log("Vibration pattern ");
       });
 
       // Stop all vibrations
