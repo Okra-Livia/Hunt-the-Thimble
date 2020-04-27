@@ -36,8 +36,11 @@ function handleDistance(location){
     var distance = Math.round(Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2))); 
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
+ 
+}
 
-    if (distance < 10) {
+function leads(distance){
+  if (distance < 10) {
         ball.style.backgroundColor = "red";
         where.innerHTML = "varmt";
       }
@@ -49,7 +52,6 @@ function handleDistance(location){
         ball.style.backgroundColor = "blue";
         where.innerHTML = "kallt";
       }
- 
 }
 
 
@@ -66,6 +68,11 @@ $(document).ready(function (distance) {
     }
 
     $('#unsupported').hide();
+
+    $('#test').click(function () {
+        navigator.vibrate([50, 100, 50, 100, 50]);
+        console.log("test");
+    });
 
     // Vibration pattern
     $('#pattern').click(function () {
