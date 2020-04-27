@@ -44,38 +44,12 @@ function handleDistance(location){
  /*  var gradient = [
   { start: [181,0,0], stop: [138,228,255] }]
   var start = */
-  vibration(distance);
+  //vibration(distance);
 }
 
-function vibration(distance){
-  navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-  
-    if (distance < 10) {
-        document.getElementById("kallt").style.display = "none";
-        document.getElementById("varmare").style.display = "none";
-        navigator.vibrate([20, 25, 20, 25, 20]-1); 
-        ball.style.backgroundColor = "red";
-      }
-      else if (distance > 10 && distance < 20){
-        document.getElementById("varmt").style.display = "none";
-        document.getElementById("kallt").style.display = "none";
-        document.getElementById("varmare").style.display = "block";
-        navigator.vibrate([50, 300, 50, 300, 50]-1);
-        ball.style.backgroundColor = "purple"; 
-      }
-      else if (distance > 20 && distance < 50){
-        document.getElementById("varmt").style.display = "none";
-        document.getElementById("varmare").style.display = "none";
-        document.getElementById("kallt").style.display = "block";
-        navigator.vibrate([50, 1000, 50, 1000, 50]-1); 
-        ball.style.backgroundColor = "blue";
-      }
+//window.addEventListener("distanceFromGoal", handleDistance);
 
-}
-
-window.addEventListener("distanceFromGoal", handleDistance);
-
-/*$(document).ready(function () {
+$(document).ready(function (distance) {
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
     // Determine if vibration is supported in this web browser
@@ -93,20 +67,35 @@ window.addEventListener("distanceFromGoal", handleDistance);
 
     // Vibration pattern
     $('#pattern').click(function (distance) {
-      console.log(distance);
-      
+    if (distance < 10) {
+        document.getElementById("kallt").style.display = "none";
+        document.getElementById("varmare").style.display = "none";
+        document.getElementById("varmt").style.display = "block";
+        navigator.vibrate([20, 25, 20, 25, 20]-1); 
+        ball.style.backgroundColor = "red";
+      }
+      else if (distance > 10 && distance < 20){
+        document.getElementById("varmt").style.display = "none";
+        document.getElementById("kallt").style.display = "none";
+        document.getElementById("varmare").style.display = "block";
+        navigator.vibrate([50, 300, 50, 300, 50]-1);
+        ball.style.backgroundColor = "purple"; 
+      }
+      else if (distance > 20 && distance < 50){
+        document.getElementById("varmt").style.display = "none";
+        document.getElementById("varmare").style.display = "none";
+        document.getElementById("kallt").style.display = "block";
+        navigator.vibrate([50, 1000, 50, 1000, 50]-1); 
+        ball.style.backgroundColor = "blue";
+      }
+      });
 
-      
-
-        console.log("Vibration pattern");
-    });
-
-    // Stop all vibrations
+  // Stop all vibrations
     $('#stop').click(function () {
         navigator.vibrate(0);
         console.log("Stop all vibrations");
     });
-  });*/
+  });
 
 
 window.addEventListener("deviceorientation", handleOrientation);
