@@ -36,7 +36,7 @@ function handleDistance(location){
     var distance = Math.round(Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2))); 
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
-    leads(distance);
+    //leads(distance);
 }
 
 
@@ -61,7 +61,7 @@ function leads(distance){
       }
 }
 
-window.addEventListener('getLeads', handleDistance);
+//window.addEventListener('getLeads', handleDistance);
 
 $(document).ready(function (distance) {
       navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
@@ -80,8 +80,8 @@ $(document).ready(function (distance) {
 
       // Vibration pattern
       $('#pattern').click(function () {
-
-          if (distance < 10) {
+        navigator.vibrate(cold);
+          /*if (distance < 10) {
             navigator.vibrate(warm);
           }
           else if (distance > 10 && distance < 20) {
@@ -89,13 +89,13 @@ $(document).ready(function (distance) {
           }
           else if (distance > 20) {
             navigator.vibrate(cold);
-          }
+          }*/
           console.log("Vibration pattern");
       });
 
       // Stop all vibrations
       $('#stop').click(function () {
-          navigator.vibrate(0);
+          navigator.vibrate([50, 1000, 50, 1000, 50]);
           console.log("Stop all vibrations");
       });
         });
