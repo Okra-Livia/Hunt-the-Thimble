@@ -44,6 +44,7 @@ function handleDistance(location){
  /*  var gradient = [
   { start: [181,0,0], stop: [138,228,255] }]
   var start = */
+  vibration(distance);
 }
 
 function vibration(distance){
