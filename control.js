@@ -78,19 +78,18 @@ $(document).ready(function (distance) {
       var warmer = [50, 300, 50, 300, 50];
       var warm = [20, 25, 20, 25, 20]; 
 
-      var i;
       // Vibration pattern
       $('#pattern').click(function () {
-
-          for (i in distance, i < 10) {
+          navigator.vibrate(warm);
+          /*if (distance < 10) {
             navigator.vibrate(warm);
           }
-          for (i in distance, i > 10 && i < 20) {
+          else if (distance > 10 && distance < 20) {
             navigator.vibrate(warmer);
           }
-          for (i in distance, i > 20) {
+          else if (distance > 20) {
             navigator.vibrate(cold);
-          }
+          }*/
           console.log("Vibration pattern");
       });
 
