@@ -51,8 +51,8 @@ function leads(distance){
         where.innerHTML = "warm";
       }
       else if (distance > 10 && distance < 20){
-        ball.style.backgroundColor = "purple"; 
-        ball.style.boxShadow = "0 0 140px 90px purple";
+        ball.style.backgroundColor = "orange"; 
+        ball.style.boxShadow = "0 0 140px 90px orange";
         where.innerHTML = "warmer";
       }
       else if (distance > 20){
