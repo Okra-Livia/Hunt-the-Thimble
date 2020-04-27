@@ -27,10 +27,10 @@ html, body {
     height: 20px;
     background: white;
     border-radius: 100%;
-    box-shadow:
+    /*box-shadow:
     0 0 60px 30px #fff,
     0 0 100px 60px #f0f,
-    0 0 140px 90px #0ff;
+    0 0 140px 90px #0ff;*/
   }
 
   .output {
