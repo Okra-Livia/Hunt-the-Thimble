@@ -63,7 +63,7 @@ function leads(distance){
 
 window.addEventListener('getLeads', handleDistance);
 
-function handleVibration(distance){
+function handleVibration(){
   window.navigator = window.navigator || {};
       if (navigator.vibrate === undefined) {
           document.getElementById('unsupported').classList.remove('hidden');
