@@ -32,6 +32,7 @@ function handleDistance(location){
 //hur ofta körs den? keff pga startar om varje gång som den uppdateras??
   //kör som separat grej vibben eller?
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+
     var dx = thimble[0] - location [0];
     var dy = thimble[1] - location [1]; 
 
@@ -40,9 +41,17 @@ function handleDistance(location){
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
 
-}
+ /*   var gradient = [
+  { start: [181,0,0], stop: [138,228,255] }
+*/
 
-window.addEventListener("deviceorientation", handleOrientation);
+  if (distance < 10) {
+    ball.style.backgroundColor = "red";
+  }
+  else if(distance > 20 && distance < 40){
+    ball.style.backgroundColor = "blue";
+  }
+}
 
 $(document).ready(function () {
     navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
@@ -63,40 +72,21 @@ $(document).ready(function () {
     // Vibration pattern
     $('#pattern').click(function (distance) {
       console.log(distance);
-      if (distance < 10) {
-        document.getElementById("kallt").style.display = "none";
-        document.getElementById("varmare").style.display = "none";
-        navigator.vibrate([20, 25, 20, 25, 20]-1); 
-      }
-      else if (distance > 10 && distance < 20){
-        document.getElementById("varmt").style.display = "none";
-        document.getElementById("kallt").style.display = "none";
-        document.getElementById("varmare").style.display = "block";
-        navigator.vibrate([50, 300, 50, 300, 50]-1); 
-      }
-      else if (distance > 20 && distance < 50){
-        document.getElementById("varmt").style.display = "none";
-        document.getElementById("varmare").style.display = "none";
-        document.getElementById("kallt").style.display = "block";
-        navigator.vibrate([50, 1000, 50, 1000, 50]-1); 
-      }
-    
+      
 
-
-
-        /*switch(distance){
-          case distance < 10:
-            navigator.vibrate([50, 25, 50, 25, 50]);
-          break;
-          case distance > 10 && distance < 20:
-            navigator.vibrate([50, 100, 50, 100, 50]);
-          break;
-          case distance > 20 && distance < 40:
-            navigator.vibrate([50, 500, 50, 500, 50]);
-          break;
-          default:
-            navigator.vibrate([50, 1000, 50, 1000, 50]);
-        }*/
+      switch(distance){
+        case distance < 10:
+          navigator.vibrate([50, 25, 50, 25, 50]);
+        break;
+        case distance > 10 && distance < 20:
+          navigator.vibrate([50, 100, 50, 100, 50]);
+        break;
+        case distance > 20 && distance < 40:
+          navigator.vibrate([50, 500, 50, 500, 50]);
+        break;
+        default:
+          navigator.vibrate([50, 1000, 50, 1000, 50]);
+      }
 
         console.log("Vibration pattern");
     });
@@ -107,3 +97,6 @@ $(document).ready(function () {
         console.log("Stop all vibrations");
     });
   });
+
+
+window.addEventListener("deviceorientation", handleOrientation);
