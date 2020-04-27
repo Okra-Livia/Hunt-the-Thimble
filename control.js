@@ -41,16 +41,9 @@ function handleDistance(location){
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
 
- /*   var gradient = [
-  { start: [181,0,0], stop: [138,228,255] }
-*/
-
-  if (distance < 10) {
-    ball.style.backgroundColor = "red";
-  }
-  else if(distance > 20 && distance < 40){
-    ball.style.backgroundColor = "blue";
-  }
+ /*  var gradient = [
+  { start: [181,0,0], stop: [138,228,255] }]
+  var start = */
 }
 
 $(document).ready(function () {
@@ -77,12 +70,15 @@ $(document).ready(function () {
       switch(distance){
         case distance < 10:
           navigator.vibrate([50, 25, 50, 25, 50]);
+          ball.style.backgroundColor = "red";
         break;
         case distance > 10 && distance < 20:
           navigator.vibrate([50, 100, 50, 100, 50]);
+          ball.style.backgroundColor = "purple";
         break;
         case distance > 20 && distance < 40:
           navigator.vibrate([50, 500, 50, 500, 50]);
+          ball.style.backgroundColor = "blue";
         break;
         default:
           navigator.vibrate([50, 1000, 50, 1000, 50]);
