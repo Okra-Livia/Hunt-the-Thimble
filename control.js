@@ -36,8 +36,13 @@ function handleDistance(location){
     var distance = Math.round(Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2))); 
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
+    leads(distance);
  
 }
+
+
+window.addEventListener('deviceorientation', handleOrientation);
+
 
 function leads(distance){
   if (distance < 10) {
@@ -53,43 +58,28 @@ function leads(distance){
         where.innerHTML = "kallt";
       }
 }
+window.addEventListener('getLeads', handleDistance);
 
+$(document).ready(function (distance) {
+      navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
-window.addEventListener('deviceorientation', handleOrientation);
+      // Determine if vibration is supported in this web browser
+      if (!navigator.vibrate) {
+          $('#supported').hide();
+          return;
+      }
 
+      $('#unsupported').hide();
 
-$(document).ready(function () {
-            navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+      // Vibration pattern
+      $('#pattern').click(function () {
+          navigator.vibrate([500, 100, 250, 100, 1000]);
+          console.log("Vibration pattern");
+      });
 
-            // Determine if vibration is supported in this web browser
-            if (!navigator.vibrate) {
-                $('#supported').hide();
-                return;
-            }
-
-            $('#unsupported').hide();
-
-            // One second vibration
-            $('#one').click(function () {
-                navigator.vibrate(1000);
-                console.log("One second vibration");
-            });
-
-            // Vibration pattern
-            $('#pattern').click(function () {
-                navigator.vibrate([500, 100, 250, 100, 1000]);
-                console.log("Vibration pattern");
-            });
-
-            // 10 second vibration
-            $('#ten').click(function () {
-                navigator.vibrate(10000);
-                console.log("10 second vibration");
-            });
-
-            // Stop all vibrations
-            $('#stop').click(function () {
-                navigator.vibrate(0);
-                console.log("Stop all vibrations");
-            });
+      // Stop all vibrations
+      $('#stop').click(function () {
+          navigator.vibrate(0);
+          console.log("Stop all vibrations");
+      });
         });
