@@ -49,53 +49,20 @@ function handleDistance(location){
 
 //window.addEventListener("distanceFromGoal", handleDistance);
 
-$(document).ready(function (distance) {
-    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-
-    // Determine if vibration is supported in this web browser
-    if (!navigator.vibrate) {
-        $('#supported').hide();
-        return;
-    }
-
-    $('#unsupported').hide();
-    
-    $('#test').click(function () {
-        navigator.vibrate([50, 100, 50, 100, 50]);
-        console.log("test");
-    });
-
-    // Vibration pattern
-    $('#pattern').click(function () {
-    if (distance < 10) {
-        document.getElementById("kallt").style.display = "none";
-        document.getElementById("varmare").style.display = "none";
-        document.getElementById("varmt").style.display = "block";
-        navigator.vibrate([20, 25, 20, 25, 20]-1); 
-        ball.style.backgroundColor = "red";
-      }
-      else if (distance > 10 && distance < 20){
-        document.getElementById("varmt").style.display = "none";
-        document.getElementById("kallt").style.display = "none";
-        document.getElementById("varmare").style.display = "block";
-        navigator.vibrate([50, 300, 50, 300, 50]-1);
+function handleVibration(distance){
+  if (distance < 10) {
+    window.navigator.vibrate([20, 25, 20, 25, 20]);
+    ball.style.backgroundColor = "red";
+  }
+  else if (distance > 10 && distance < 20){
+        window.navigator.vibrate([50, 300, 50, 300, 50]);
         ball.style.backgroundColor = "purple"; 
       }
-      else if (distance > 20 && distance < 50){
-        document.getElementById("varmt").style.display = "none";
-        document.getElementById("varmare").style.display = "none";
-        document.getElementById("kallt").style.display = "block";
-        navigator.vibrate([50, 1000, 50, 1000, 50]-1); 
-        ball.style.backgroundColor = "blue";
-      }
-      });
-
-  // Stop all vibrations
-    $('#stop').click(function () {
-        navigator.vibrate(0);
-        console.log("Stop all vibrations");
-    });
-  });
+    else if (distance > 20 && distance < 50){
+      window.navigator.vibrate([50, 1000, 50, 1000, 50]); 
+      ball.style.backgroundColor = "blue";
+    }
+}
 
 
 window.addEventListener("deviceorientation", handleOrientation);
