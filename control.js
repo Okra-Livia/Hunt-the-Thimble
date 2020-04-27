@@ -36,7 +36,7 @@ function handleDistance(location){
     var distance = Math.round(Math.sqrt(Math.pow(dy, 2) + Math.pow(dx, 2))); 
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
-    //leads(distance);
+    leads(distance);
 }
 
 
@@ -61,9 +61,27 @@ function leads(distance){
       }
 }
 
-//window.addEventListener('getLeads', handleDistance);
+window.addEventListener('getLeads', handleDistance);
 
-$(document).ready(function (distance) {
+
+function handleVibration(distance){
+  window.navigator = window.navigator || {};
+      if (navigator.vibrate === undefined) {
+          document.getElementById('unsupported').classList.remove('hidden');
+          ['pattern', 'stop'].forEach(function(elementId) {
+            document.getElementById(elementId).setAttribute('disabled', 'disabled');
+          });
+      } else {
+          document.getElementById('pattern').addEventListener('click', function() {
+            navigator.vibrate([1000, 500, 1000, 500, 2000]);
+          });
+          document.getElementById('stop').addEventListener('click', function() {
+            navigator.vibrate(0);
+          });
+      }
+}
+
+/*$(document).ready(function (distance) {
       navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
       // Determine if vibration is supported in this web browser
@@ -73,11 +91,6 @@ $(document).ready(function (distance) {
       }
 
       $('#unsupported').hide();
-
-/*      $('#test').click(function () {
-        navigator.vibrate([50, 1000, 50, 1000, 50]);
-        console.log("test");
-    });*/
 
       var cold = [50, 1000, 50, 1000, 50];
       var warmer = [50, 300, 50, 300, 50];
@@ -94,13 +107,13 @@ $(document).ready(function (distance) {
           }
           else if (distance > 20) {
             navigator.vibrate(cold);
-          }*/
+          }
           console.log("Vibration pattern");
       });
 
       // Stop all vibrations
-    $('#stop').click(function () {
-        navigator.vibrate(0);
-        console.log("Stop all vibrations");
-    });
-        });
+      $('#stop').click(function () {
+          navigator.vibrate(0);
+          console.log("Stop all vibrations");
+      });
+        });*/
