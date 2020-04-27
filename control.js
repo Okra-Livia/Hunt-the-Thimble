@@ -73,7 +73,13 @@ function handleVibration(distance){
           });
       } else {
           document.getElementById('pattern').addEventListener('click', function() {
-            navigator.vibrate([1000, 500, 1000, 500, 2000]);
+            if (distance <10) {
+              navigator.vibrate([50, 25, 50, 25, 50]);
+            }
+            else if (distance > 10 && distance < 20) {
+              navigator.vibrate([50, 300, 50, 300, 50]);
+            }
+            
           });
           document.getElementById('stop').addEventListener('click', function() {
             navigator.vibrate(0);
