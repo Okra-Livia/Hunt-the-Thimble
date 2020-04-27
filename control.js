@@ -31,7 +31,6 @@ function handleOrientation(event) {
 function handleDistance(location){ 
 //hur ofta körs den? keff pga startar om varje gång som den uppdateras??
   //kör som separat grej vibben eller?
-    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
     var dx = thimble[0] - location [0];
     var dy = thimble[1] - location [1]; 
@@ -50,16 +49,28 @@ function handleDistance(location){
 //window.addEventListener("distanceFromGoal", handleDistance);
 
 function handleVibration(distance){
+
+  if ("vibrate" in navigator) {
+  // vibration API supported
+}
+
+// enable vibration support
+navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+
+if (navigator.vibrate) {
+  // vibration API supported
+}
+
   if (distance < 10) {
-    window.navigator.vibrate([20, 25, 20, 25, 20]);
+    navigator.vibrate([20, 25, 20, 25, 20]);
     ball.style.backgroundColor = "red";
   }
   else if (distance > 10 && distance < 20){
-        window.navigator.vibrate([50, 300, 50, 300, 50]);
+        navigator.vibrate([50, 300, 50, 300, 50]);
         ball.style.backgroundColor = "purple"; 
       }
     else if (distance > 20 && distance < 50){
-      window.navigator.vibrate([50, 1000, 50, 1000, 50]); 
+      navigator.vibrate([50, 1000, 50, 1000, 50]); 
       ball.style.backgroundColor = "blue";
     }
 }
