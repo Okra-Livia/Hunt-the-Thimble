@@ -63,20 +63,38 @@ function leads(distance){
 
 window.addEventListener('getLeads', handleDistance);
 
-function handleVibration(distance){
-  window.navigator = window.navigator || {};
-      if (navigator.vibrate === undefined) {
-          document.getElementById('unsupported').classList.remove('hidden');
-          ['pattern', 'stop'].forEach(function(elementId) {
-            document.getElementById(elementId).setAttribute('disabled', 'disabled');
-          });
-      } else {
-          document.getElementById('pattern').addEventListener('click', function() {
-            navigator.vibrate([1000, 500, 1000, 500, 2000]);
-          });
-          document.getElementById('stop').addEventListener('click', function() {
-            navigator.vibrate(0);
-          });
-      }
-}
+$(document).ready(function (distance) {
+      navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
+      // Determine if vibration is supported in this web browser
+      if (!navigator.vibrate) {
+          $('#supported').hide();
+          return;
+      }
+
+      $('#unsupported').hide();
+
+      var cold = [20, 25, 20, 25, 20];
+      var warmer = [50, 300, 50, 300, 50];
+      var warm = [20, 25, 20, 25, 20]; 
+
+      // Vibration pattern
+      $('#pattern').click(function () {
+          if (distance < 10) {
+            navigator.vibrate(warm, -1);
+          }
+          else if (distance > 10 && distance < 20) {
+            navigator.vibrate(warmer, -1);
+          }
+          else if (distance > 20) {
+            navigator.vibrate(cold, -1);
+          }
+          console.log("Vibration pattern");
+      });
+
+      // Stop all vibrations
+      $('#stop').click(function () {
+          navigator.vibrate(0);
+          console.log("Stop all vibrations");
+      });
+        });
