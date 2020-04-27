@@ -79,7 +79,7 @@ function handleVibration(distance){
             else if (distance > 10 && distance < 20) {
               navigator.vibrate([50, 300, 50, 300, 50]);
             }
-            else if (distance > 20 && distance < 57) {
+            else {
               navigator.vibrate([50, 1000, 50, 1000, 50]);
             }
             
