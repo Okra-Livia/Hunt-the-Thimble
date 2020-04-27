@@ -50,15 +50,12 @@ function handleDistance(location){
 
 function handleVibration(distance){
 
-  if ("vibrate" in navigator) {
-  // vibration API supported
-}
-
 // enable vibration support
 navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
 if (navigator.vibrate) {
   // vibration API supported
+  console.log("yes!");
 }
 
   if (distance < 10) {
@@ -66,13 +63,15 @@ if (navigator.vibrate) {
     ball.style.backgroundColor = "red";
   }
   else if (distance > 10 && distance < 20){
-        navigator.vibrate([50, 300, 50, 300, 50]);
-        ball.style.backgroundColor = "purple"; 
-      }
-    else if (distance > 20 && distance < 50){
-      navigator.vibrate([50, 1000, 50, 1000, 50]); 
-      ball.style.backgroundColor = "blue";
+    navigator.vibrate([50, 300, 50, 300, 50]);
+    ball.style.backgroundColor = "purple"; 
     }
+  else if (distance > 20 && distance < 50){
+    navigator.vibrate([50, 1000, 50, 1000, 50]); 
+    ball.style.backgroundColor = "blue";
+  }
+
+  navigator.vibrate(0)
 }
 
 
