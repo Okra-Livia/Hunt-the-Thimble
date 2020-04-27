@@ -40,6 +40,16 @@ function handleDistance(location){
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
 
+    if (distance < 10) {
+          ball.style.backgroundColor = "red";
+        }
+        else if (distance > 10 && distance < 20){
+          ball.style.backgroundColor = "purple"; 
+        }
+        else if (distance > 20 && distance < 50){
+          ball.style.backgroundColor = "blue";
+        }
+
  /*  var gradient = [
   { start: [181,0,0], stop: [138,228,255] }]
   var start = */
@@ -48,48 +58,45 @@ function handleDistance(location){
 
 //window.addEventListener("distanceFromGoal", handleDistance);
 
-$(document).ready(function () {
-            navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
+$(document).ready(function (distance) {
+    navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
 
-            // Determine if vibration is supported in this web browser
-            if (!navigator.vibrate) {
-                $('#supported').hide();
-                return;
-            }
+    // Determine if vibration is supported in this web browser
+    if (!navigator.vibrate) {
+        $('#supported').hide();
+        return;
+    }
 
-            $('#unsupported').hide();
+    $('#unsupported').hide();
 
-            // Vibration pattern
-            $('#pattern').click(function (distance) {
-              if (distance < 10) {
-                  document.getElementById("kallt").style.display = "none";
-                  document.getElementById("varmare").style.display = "none";
-                  document.getElementById("varmt").style.display = "block";
-                  navigator.vibrate([20, 25, 20, 25, 20]); 
-                  ball.style.backgroundColor = "red";
-                }
-                else if (distance > 10 && distance < 20){
-                  document.getElementById("varmt").style.display = "none";
-                  document.getElementById("kallt").style.display = "none";
-                  document.getElementById("varmare").style.display = "block";
-                  navigator.vibrate([50, 300, 50, 300, 50]);
-                  ball.style.backgroundColor = "purple"; 
-                }
-                else if (distance > 20 && distance < 50){
-                  document.getElementById("varmt").style.display = "none";
-                  document.getElementById("varmare").style.display = "none";
-                  document.getElementById("kallt").style.display = "block";
-                  navigator.vibrate([50, 1000, 50, 1000, 50]); 
-                  ball.style.backgroundColor = "blue";
-                }
-                console.log("Vibration pattern");
-            });
+    // Vibration pattern
+    $('#pattern').click(function () {
+      if (distance < 10) {
+          document.getElementById("kallt").style.display = "none";
+          document.getElementById("varmare").style.display = "none";
+          document.getElementById("varmt").style.display = "block";
+          navigator.vibrate([20, 25, 20, 25, 20]);
+        }
+        else if (distance > 10 && distance < 20){
+          document.getElementById("varmt").style.display = "none";
+          document.getElementById("kallt").style.display = "none";
+          document.getElementById("varmare").style.display = "block";
+          navigator.vibrate([50, 300, 50, 300, 50]);
+        }
+        else if (distance > 20 && distance < 50){
+          document.getElementById("varmt").style.display = "none";
+          document.getElementById("varmare").style.display = "none";
+          document.getElementById("kallt").style.display = "block";
+          navigator.vibrate([50, 1000, 50, 1000, 50]);
+        }
+        console.log("Vibration pattern");
+    });
 
-            // Stop all vibrations
-            $('#stop').click(function () {
-                navigator.vibrate(0);
-                console.log("Stop all vibrations");
-            });
+    // Stop all vibrations
+    $('#stop').click(function () {
+        navigator.vibrate(0);
+        console.log("Stop all vibrations");
+    });
         });
 
 
