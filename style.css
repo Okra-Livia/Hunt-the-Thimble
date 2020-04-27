@@ -46,7 +46,7 @@ html, body {
     font-size: 20px;
   }
 
-  #where {
+  #where, #test {
     font-size: 30px;
     padding: 20px;
   }
