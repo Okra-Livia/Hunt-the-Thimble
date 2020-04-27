@@ -63,26 +63,19 @@ function leads(distance){
 
 window.addEventListener('getLeads', handleDistance);
 
-$(document).ready(function (distance) {
-      navigator.vibrate = navigator.vibrate || navigator.webkitVibrate || navigator.mozVibrate || navigator.msVibrate;
-
-      // Determine if vibration is supported in this web browser
-      if (!navigator.vibrate) {
-          $('#supported').hide();
-          return;
+function handleVibration(distance){
+  window.navigator = window.navigator || {};
+      if (navigator.vibrate === undefined) {
+          document.getElementById('unsupported').classList.remove('hidden');
+          ['pattern', 'stop'].forEach(function(elementId) {
+            document.getElementById(elementId).setAttribute('disabled', 'disabled');
+          });
+      } else {
+          document.getElementById('pattern').addEventListener('click', function() {
+            navigator.vibrate([1000, 500, 1000, 500, 2000]);
+          });
+          document.getElementById('stop').addEventListener('click', function() {
+            navigator.vibrate(0);
+          });
       }
-
-      $('#unsupported').hide();
-
-      // Vibration pattern
-      $('#pattern').click(function () {
-          navigator.vibrate([20, 25, 20, 25, 20]);
-          console.log("Vibration pattern");
-      });
-
-      // Stop all vibrations
-      $('#stop').click(function () {
-          navigator.vibrate(0);
-          console.log("Stop all vibrations");
-      });
-        });
+}
