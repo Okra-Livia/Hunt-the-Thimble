@@ -47,17 +47,17 @@ function leads(distance){
   if (distance < 10) {
         ball.style.backgroundColor = "red";
         ball.style.boxShadow = "0 0 140px 90px red";
-        where.innerHTML = "varmt";
+        where.innerHTML = "warm";
       }
       else if (distance > 10 && distance < 20){
         ball.style.backgroundColor = "purple"; 
         ball.style.boxShadow = "0 0 140px 90px purple";
-        where.innerHTML = "varmare";
+        where.innerHTML = "warmer";
       }
       else if (distance > 20){
         ball.style.backgroundColor = "blue";
         ball.style.boxShadow = "0 0 140px 90px blue";
-        where.innerHTML = "kallt";
+        where.innerHTML = "cold";
       }
 }
 
@@ -74,9 +74,20 @@ $(document).ready(function (distance) {
 
       $('#unsupported').hide();
 
+      var cold = [20, 25, 20, 25, 20];
+      var warmer = [50, 300, 50, 300, 50];
+      var warm = [20, 25, 20, 25, 20]; 
       // Vibration pattern
       $('#pattern').click(function () {
-          navigator.vibrate([20, 25, 20, 25, 20]);
+          if (distance < 10) {
+            navigator.vibrate(warm);
+          }
+          else if (distance > 10 && distance < 20) {
+            navigator.vibrate(warmer);
+          }
+          else if (distance > 20) {
+            navigator.vibrate(cold);
+          }
           console.log("Vibration pattern");
       });
 
