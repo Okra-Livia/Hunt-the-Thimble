@@ -37,6 +37,7 @@ function handleDistance(location){
 
     output.innerHTML += "Distance to thimble: " + distance + "\n";
     leads(distance);
+    handleVibration(distance);
 }
 
 
@@ -63,7 +64,7 @@ function leads(distance){
 
 window.addEventListener('getLeads', handleDistance);
 
-function handleVibration(){
+function handleVibration(distance){
   window.navigator = window.navigator || {};
       if (navigator.vibrate === undefined) {
           document.getElementById('unsupported').classList.remove('hidden');
