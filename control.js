@@ -47,17 +47,21 @@ window.addEventListener('deviceorientation', handleOrientation);
 function leads(distance){
   if (distance < 10) {
         ball.style.backgroundColor = "red";
+        ball.style.boxShadow = "red"
         where.innerHTML = "varmt";
       }
       else if (distance > 10 && distance < 20){
         ball.style.backgroundColor = "purple"; 
+        ball.style.boxShadow = "purple"
         where.innerHTML = "varmare";
       }
       else if (distance > 20){
         ball.style.backgroundColor = "blue";
+        ball.style.boxShadow = "blue"
         where.innerHTML = "kallt";
       }
 }
+
 window.addEventListener('getLeads', handleDistance);
 
 $(document).ready(function (distance) {
