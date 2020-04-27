@@ -46,17 +46,17 @@ window.addEventListener('deviceorientation', handleOrientation);
 function leads(distance){
   if (distance < 10) {
         ball.style.backgroundColor = "red";
-        ball.style.boxShadow = "0 0 100px 60px red";
+        ball.style.boxShadow = "0 0 140px 90px red";
         where.innerHTML = "varmt";
       }
       else if (distance > 10 && distance < 20){
         ball.style.backgroundColor = "purple"; 
-        ball.style.boxShadow = "0 0 100px 60px purple";
+        ball.style.boxShadow = "0 0 140px 90px purple";
         where.innerHTML = "varmare";
       }
       else if (distance > 20){
         ball.style.backgroundColor = "blue";
-        ball.style.boxShadow = "0 0 100px 60px blue";
+        ball.style.boxShadow = "0 0 140px 90px blue";
         where.innerHTML = "kallt";
       }
 }
@@ -76,10 +76,8 @@ $(document).ready(function (distance) {
 
       // Vibration pattern
       $('#pattern').click(function () {
-        if (distance > 20) {
           navigator.vibrate([20, 25, 20, 25, 20]);
           console.log("Vibration pattern");
-        }
       });
 
       // Stop all vibrations
