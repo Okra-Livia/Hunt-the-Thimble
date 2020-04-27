@@ -81,13 +81,13 @@ $(document).ready(function (distance) {
       // Vibration pattern
       $('#pattern').click(function () {
           if (distance < 10) {
-            navigator.vibrate(warm, -1);
+            navigator.vibrate(warm, 0);
           }
           else if (distance > 10 && distance < 20) {
-            navigator.vibrate(warmer, -1);
+            navigator.vibrate(warmer, 0);
           }
           else if (distance > 20) {
-            navigator.vibrate(cold, -1);
+            navigator.vibrate(cold, 0);
           }
           console.log("Vibration pattern");
       });
