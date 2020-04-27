@@ -46,17 +46,17 @@ window.addEventListener('deviceorientation', handleOrientation);
 function leads(distance){
   if (distance < 10) {
         ball.style.backgroundColor = "red";
-        ball.style.boxShadow = "red"
+        ball.style.boxShadow = "0 0 100px 60px red";
         where.innerHTML = "varmt";
       }
       else if (distance > 10 && distance < 20){
         ball.style.backgroundColor = "purple"; 
-        ball.style.boxShadow = "purple"
+        ball.style.boxShadow = "0 0 100px 60px purple";
         where.innerHTML = "varmare";
       }
       else if (distance > 20){
         ball.style.backgroundColor = "blue";
-        ball.style.boxShadow = "blue"
+        ball.style.boxShadow = "0 0 100px 60px blue";
         where.innerHTML = "kallt";
       }
 }
