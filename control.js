@@ -165,13 +165,13 @@ function thimbleFound() {
           i++;
           console.log("Hittad!");
           where.innerHTML = "Hittad!";
-          start_btn.disabled = false;
           break;
 
         //lägga till att vi ablar startknapp så länge i<=thimble.length
         }
       }
     //}
+    start_btn.disabled = false;
   }
 }
 
