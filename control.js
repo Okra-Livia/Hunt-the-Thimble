@@ -165,8 +165,9 @@ function thimbleFound() {
           i++;
           console.log("Hittad!");
           where.innerHTML = "Hittad!";
-          break;
           start_btn.disabled = false;
+          break;
+
         //lägga till att vi ablar startknapp så länge i<=thimble.length
         }
       }
