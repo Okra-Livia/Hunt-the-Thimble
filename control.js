@@ -162,7 +162,7 @@ function thimbleFound() {
           feedbackOn=!feedbackOn;
           i++;
           console.log("Hittad!");
-          //where.innerHTML = "Hittad!";
+          where.innerHTML = "Hittad!";
           break;
         //lägga till att vi ablar startknapp så länge i<=thimble.length
         }
