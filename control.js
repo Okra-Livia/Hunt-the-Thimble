@@ -83,7 +83,7 @@ function handleDistance(location) {
 //alternativt att vi inte har text alls.
 function handleVisual() {
   if(feedbackOn && feedback[i][1]){
-    if (distance < found) {
+    if (distance = found) {
       ball.style.backgroundColor = "red";
       ball.style.boxShadow = "0 0 140px 90px red";
       where.innerHTML = "warm";
