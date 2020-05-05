@@ -2,6 +2,7 @@ var ball = document.querySelector(".ball");
 var room = document.querySelector(".room");
 var output = document.querySelector(".output");
 var where = document.getElementById("where");
+var start_btn = document.getElementById("start");
 var maxX = room.clientWidth - ball.clientWidth;
 var maxY = room.clientHeight - ball.clientHeight;
 
@@ -134,13 +135,14 @@ function handleVibration(pattern) {
   }
 }
 
-document.getElementById("start").addEventListener("click", function () {
+start_btn.addEventListener("click", function () {
   feedbackOn = !feedbackOn;
   startTime = new Date().getTime();
   console.log("start "+i);
 
   runHandleVibration();
   //knappen behöver bli disabled tills man ablar via thimbleFound(), alltså när vi hittat thimblen
+  start_btn.disabled = true;
   }
 );
 
@@ -164,6 +166,7 @@ function thimbleFound() {
           console.log("Hittad!");
           where.innerHTML = "Hittad!";
           break;
+          start_btn.disabled = false;
         //lägga till att vi ablar startknapp så länge i<=thimble.length
         }
       }
