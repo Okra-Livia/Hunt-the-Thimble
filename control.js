@@ -157,11 +157,10 @@ function thimbleFound() {
       while (distance < found){
         if (new Date().getSeconds()-foundTime>=1){
           downloadData[i] = new Date().getTime() - startTime;
-          console.log(downloadData);
+          console.log("downloadData: " + downloadData);
           feedbackOn=!feedbackOn;
           i++;
           console.log("Hittad!");
-          room.innerHTML = "Hittad!";
           break;
         //lägga till att vi ablar startknapp så länge i<=thimble.length
         }
