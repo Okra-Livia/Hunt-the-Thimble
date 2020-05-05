@@ -18,7 +18,7 @@ const vibrate = (pattern) => {
 
 ///----- Here are variables we need to match to articles-----
 
-const found = 10; //Sets the range for when the thimble is found
+const found = 5; //Sets the range for when the thimble is found
 
 const thimble = [[0, 0], [20,20]];
 //[i][0] bestämmer om vib, [i][1] bestämmer om vis
@@ -50,6 +50,7 @@ function handleOrientation(event) {
   if (y < -40) {
     y = -40;
   }
+
   var location = [x, y];
   ball.style.top = (maxY * (y + 40)) / 80 + "px";
   ball.style.left = (maxX * (x + 40)) / 80 + "px";
@@ -154,7 +155,7 @@ document.getElementById("download").addEventListener("click", function () {
 function thimbleFound() {
   if (feedbackOn){
       const foundTime = new Date().getSeconds();
-      while (distance < found-2){
+      while (distance < found){
         if (new Date().getSeconds()-foundTime>=1){
           downloadData[i] = new Date().getTime() - startTime;
           console.log("downloadData: " + downloadData);
