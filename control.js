@@ -163,15 +163,14 @@ function thimbleFound() {
           console.log("downloadData: " + downloadData);
           feedbackOn=!feedbackOn;
           i++;
+          start_btn.disabled = false;
           console.log("Hittad!");
-          //where.innerHTML = "Hittad!";
           break;
 
         //lägga till att vi ablar startknapp så länge i<=thimble.length
         }
       }
     //}
-    start_btn.disabled = false;
   }
 }
 
