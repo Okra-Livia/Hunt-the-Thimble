@@ -155,7 +155,7 @@ document.getElementById("download").addEventListener("click", function () {
 function thimbleFound() {
   if (feedbackOn){
       const foundTime = new Date().getSeconds();
-      while (distance < found){
+      while (distance < found-3){
         if (new Date().getSeconds()-foundTime>=1){
           downloadData[i] = new Date().getTime() - startTime;
           console.log("downloadData: " + downloadData);
