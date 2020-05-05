@@ -18,7 +18,7 @@ const vibrate = (pattern) => {
 
 ///----- Here are variables we need to match to articles-----
 
-const found = 5; //Sets the range for when the thimble is found
+const found = 10; //Sets the range for when the thimble is found
 
 const thimble = [[0, 0], [20,20]];
 //[i][0] bestämmer om vib, [i][1] bestämmer om vis
