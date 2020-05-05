@@ -154,18 +154,17 @@ document.getElementById("download").addEventListener("click", function () {
 function thimbleFound() {
   if (feedbackOn){
       const foundTime = new Date().getSeconds();
-      while (distance < found){
+      while (distance < found-2){
         if (new Date().getSeconds()-foundTime>=1){
           downloadData[i] = new Date().getTime() - startTime;
           console.log("downloadData: " + downloadData);
           feedbackOn=!feedbackOn;
           i++;
           console.log("Hittad!");
-          
+          break;
         //lägga till att vi ablar startknapp så länge i<=thimble.length
         }
       }
-      break;
     //}
   }
 }
