@@ -169,6 +169,8 @@ function thimbleFound() {
           feedbackOn=!feedbackOn;
           i++;
           start_btn.disabled = false;
+          var popup = document.getElementById("myPopup");
+          popup.classList.toggle("show");
           console.log("Hittad!");
           break;
 
