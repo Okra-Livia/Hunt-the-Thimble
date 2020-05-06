@@ -107,22 +107,16 @@ function handleVisual() {
 function selectPattern() {
   if (distance < found) {
     return SHORT;
-    where.innerHTML = "short";
   } else if (distance > 7 && distance < 17) {
     return MED_SHORT;
-    where.innerHTML = "med_short";
   } else if (distance > 17 && distance < 27) {
     return MEDIUM;
-    where.innerHTML = "medium";
   } else if (distance > 27 && distance < 37) {
     return MEDIUM_LONG;
-    where.innerHTML = "medium_long";
   } else if (distance > 37 && distance < 47) {
     return LONG;
-    where.innerHTML = "long";
   }
   return VERY_LONG;
-  where.innerHTML = "very_long";
 }
 
 //Runs vibrations continually
