@@ -109,7 +109,7 @@ function selectPattern() {
   } else if (distance > 17 && distance < 28) {
     return MEDIUM;
   } else if (distance > 27 && distance < 38) {
-    return MEDIUM_LONG;
+    return MED_LONG;
   } else if (distance > 37 && distance < 48) {
     return LONG;
   }
