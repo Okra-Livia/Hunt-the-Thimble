@@ -168,9 +168,8 @@ function thimbleFound() {
           console.log("downloadData: " + downloadData);
           feedbackOn=!feedbackOn;
           i++;
+          alert("You found the thimble!!");
           start_btn.disabled = false;
-          var popup = document.getElementById("myPopup");
-          popup.classList.toggle("show");
           console.log("Hittad!");
           break;
 
