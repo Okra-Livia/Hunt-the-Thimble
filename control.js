@@ -104,13 +104,13 @@ function handleVisual() {
 function selectPattern() {
   if (distance < found) {
     return SHORT;
-  } else if (distance > 7 && distance < 18) {
+  } else if (distance > 9 && distance < 18) {
     return MED_SHORT;
-  } else if (distance > 17 && distance < 28) {
+  } else if (distance > 17 && distance < 26) {
     return MEDIUM;
-  } else if (distance > 27 && distance < 38) {
+  } else if (distance > 25 && distance < 34) {
     return MED_LONG;
-  } else if (distance > 37 && distance < 48) {
+  } else if (distance > 33 && distance < 40) {
     return LONG;
   }
   return VERY_LONG;
@@ -168,7 +168,6 @@ function thimbleFound() {
           console.log("downloadData: " + downloadData);
           feedbackOn=!feedbackOn;
           i++;
-          alert("You found the thimble!!");
           start_btn.disabled = false;
           console.log("Hittad!");
           break;
