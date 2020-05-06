@@ -27,8 +27,11 @@ const feedback = [[true, false],[false, true]];
 
 //vib patterns, vi behöver fler
 const SHORT = [50, 25, 50, 25, 50];
+const MED_SHORT = [50, 150, 50, 150, 50];
 const MEDIUM = [50, 300, 50, 300, 50];
+const MED_LONG = [50, 600, 50, 600, 50];
 const LONG = [50, 1000, 50, 1000, 50];
+const VERY_LONG = [50, 1500, 50, 1500, 50];
 
 
 //------------
@@ -104,11 +107,22 @@ function handleVisual() {
 function selectPattern() {
   if (distance < found) {
     return SHORT;
-  } else if (distance > 10 && distance < 20) {
+    where.innerHTML = "short";
+  } else if (distance > 7 && distance < 17) {
+    return MED_SHORT;
+    where.innerHTML = "med_short";
+  } else if (distance > 17 && distance < 27) {
     return MEDIUM;
-  } // else if (distance > 20 && distance < 40) {
-  return LONG;
-  //}
+    where.innerHTML = "medium";
+  } else if (distance > 27 && distance < 37) {
+    return MEDIUM_LONG;
+    where.innerHTML = "medium_long";
+  } else if (distance > 37 && distance < 47) {
+    return LONG;
+    where.innerHTML = "long";
+  }
+  return VERY_LONG;
+  where.innerHTML = "very_long";
 }
 
 //Runs vibrations continually
@@ -157,7 +171,7 @@ document.getElementById("download").addEventListener("click", function () {
 function thimbleFound() {
   if (feedbackOn){
       const foundTime = new Date().getSeconds();
-      while (distance < found-3){
+      while (distance < found-3){                   //test value found-3
         if (new Date().getSeconds()-foundTime>=1){
           downloadData[i] = new Date().getTime() - startTime;
           console.log("downloadData: " + downloadData);
