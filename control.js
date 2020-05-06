@@ -91,15 +91,12 @@ function handleVisual() {
     if (distance < found) {
       ball.style.backgroundColor = "red";
       ball.style.boxShadow = "0 0 140px 90px red";
-      where.innerHTML = "warm";
     } else if (distance > 10 && distance < 20) {
       ball.style.backgroundColor = "orange";
       ball.style.boxShadow = "0 0 140px 90px orange";
-      where.innerHTML = "warmer";
     } else if (distance > 20) {
       ball.style.backgroundColor = "blue";
       ball.style.boxShadow = "0 0 140px 90px blue";
-      where.innerHTML = "cold";
     }
   }
 }
@@ -107,13 +104,13 @@ function handleVisual() {
 function selectPattern() {
   if (distance < found) {
     return SHORT;
-  } else if (distance > 7 && distance < 17) {
+  } else if (distance > 7 && distance < 18) {
     return MED_SHORT;
-  } else if (distance > 17 && distance < 27) {
+  } else if (distance > 17 && distance < 28) {
     return MEDIUM;
-  } else if (distance > 27 && distance < 37) {
+  } else if (distance > 27 && distance < 38) {
     return MEDIUM_LONG;
-  } else if (distance > 37 && distance < 47) {
+  } else if (distance > 37 && distance < 48) {
     return LONG;
   }
   return VERY_LONG;
