@@ -29,9 +29,9 @@ const feedback = [[true, false],[false, true]];
 const SHORT = [50, 25, 50, 25, 50];
 const MED_SHORT = [50, 150, 50, 150, 50];
 const MEDIUM = [50, 300, 50, 300, 50];
-const MED_LONG = [50, 600, 50, 600, 50];
-const LONG = [50, 1000, 50, 1000, 50];
-const VERY_LONG = [50, 1500, 50, 1500, 50];
+const MED_LONG = [50, 400, 50, 400, 50];
+const LONG = [50, 600, 50, 600, 50];
+const VERY_LONG = [50, 1000, 50, 1000, 50];
 
 
 //------------
